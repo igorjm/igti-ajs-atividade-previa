@@ -1,11 +1,21 @@
 import React from "react";
 
-import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
+
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+      <Link color="inherit" href="https://material-ui.com/">
+        Igor Melo
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -42,27 +52,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header() {
+export default function Footer() {
   const classes = useStyles();
 
   return (
-    <AppBar position="relative">
-      <Toolbar>
-        <Link href="/" color="inherit">
-          <Typography variant="h6" color="inherit" noWrap>
-            AJS
-          </Typography>
-        </Link>
-
-        <Link href="/signin" color="inherit">
-          <Button className={classes.textHeader} color="inherit">
-            Sign in
-          </Button>
-        </Link>
-        <Link href="/signup" color="inherit">
-          <Button color="inherit">Sign up</Button>
-        </Link>
-      </Toolbar>
-    </AppBar>
+    <footer className={classes.footer}>
+      <Typography variant="h6" align="center" gutterBottom>
+        Footer
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        align="center"
+        color="textSecondary"
+        component="p"
+      >
+        This is the footer component
+      </Typography>
+      <Copyright />
+    </footer>
   );
 }
